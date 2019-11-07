@@ -16,7 +16,23 @@ def eating_cookies_1(n, cache=None):
     return eating_cookies_1(n-1)+eating_cookies_1(n-2) + eating_cookies_1(n-3)
 
 
-def eating_cookies(n, cache=None):
+# cache = {}
+
+
+def eating_cookies(n, cache={}):
+    if n < 2:
+        return 1
+    if n == 2:
+        return 2
+
+    if n not in cache:
+        cache[n] = eating_cookies(
+            n-1)+eating_cookies(n-2) + eating_cookies(n-3)
+
+    return cache[n]
+
+
+def eating_cookies_2(n, cache=None):
     if n < 2:
         return 1
     elif n == 2:
@@ -44,3 +60,6 @@ if __name__ == "__main__":
             ways=eating_cookies(num_cookies), n=num_cookies))
     else:
         print('Usage: eating_cookies.py [num_cookies]')
+
+
+
