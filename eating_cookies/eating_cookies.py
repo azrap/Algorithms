@@ -7,6 +7,7 @@ import sys
 # recursive solution
 
 
+# simple recursion way to solve eating cookies
 def eating_cookies_1(n, cache=None):
     if n < 2:
         return 1
@@ -18,6 +19,8 @@ def eating_cookies_1(n, cache=None):
 
 # cache = {}
 
+
+# incorporating cache to solve eating_cookies:
 
 def eating_cookies(n, cache={}):
     if n < 2:
@@ -32,6 +35,7 @@ def eating_cookies(n, cache={}):
     return cache[n]
 
 
+# solved eating_cookies iteratively
 def eating_cookies_2(n, cache=None):
     if n < 2:
         return 1
@@ -60,6 +64,3 @@ if __name__ == "__main__":
             ways=eating_cookies(num_cookies), n=num_cookies))
     else:
         print('Usage: eating_cookies.py [num_cookies]')
-
-
-
